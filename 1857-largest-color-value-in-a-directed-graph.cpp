@@ -38,11 +38,11 @@ public:
     }
 
 private:
-    int incomming;          // incomming connection
-    char color;             // node's color
-    bool processed;         // if the node has been processed
-    int colors[COLOR_CNT];  // the colors count stastices 
-    vector<int> children;   // children nodes
+    int incomming;        
+    char color;            
+    bool processed;         
+    int colors[COLOR_CNT];  
+    vector<int> children;   
 };
 
 
@@ -74,22 +74,11 @@ public:
         
          vector<bool> visited(nodes_cnt, false);
         
-        // We can do toplogical sort
-        // 
-        //vector<int> topSort;
-        //for(int id=0; id <nodes_cnt; id++){
-        //    auto& n = nodes[id];
-        //    topologicalSort(id, topSort, visited);
-        //}
-        //print(topSort);
         
         int m = -1;
         for (int i=0; i<nodes_cnt; i++) {
-            //int id = topSort[i];
             int id = i;
             auto& n = nodes[id];
-            
-            //using to check cycle.
             std::fill(visited.begin(), visited.end(), false);
             
             bool succ = travel(id, visited);
@@ -110,18 +99,13 @@ public:
         }
         topSort.push_back(i);
     }
-    
-    //return true if it is successful
-    //return false if there is an error  - has cycle
+
     bool travel(int i, vector<bool>& visited ) {
-        //this node has been processed already
         if (nodes[i].isProcessed()) return true;
-        
-        //cycled 
+
         if (visited[i]) return false;
         visited[i] = true;
-        
-        // leaf node
+
         if (nodes[i].ChildrenCount() <= 0 ) {
             nodes[i].AddMyColor();
             nodes[i].Processed();
@@ -137,11 +121,6 @@ public:
         nodes[i].AddMyColor();
         nodes[i].Processed();
 
-        //cout << "["<< i << "]: " ;
-        //for(int k=0; k<26; k++) {
-        //    cout << nodes[i].colors[k] << " ";
-        //}
-        //cout << endl;
         
         return true;
     }
