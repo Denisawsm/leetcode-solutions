@@ -20,9 +20,6 @@ public:
     }
 };
 
-// Time:  O(n)
-// Space: O(1)
-// Iterator solution.
 class Solution2 {
 public:    
     bool isPalindrome(string s) {
