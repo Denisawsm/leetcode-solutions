@@ -1,10 +1,7 @@
 # 214. Shortest Palindrome (Hard)
 # https://leetcode.com/problems/shortest-palindrome/
 
-# Time:  O(n)
-# Space: O(n)
 
-# optimized from Solution2
 class Solution(object):
     def shortestPalindrome(self, s):
         """
@@ -29,8 +26,6 @@ class Solution(object):
         return s[getPrefix(A)[-1]+1:][::-1] + s
 
 
-# Time:  O(n)
-# Space: O(n)
 class Solution2(object):
     def shortestPalindrome(self, s):
         """
